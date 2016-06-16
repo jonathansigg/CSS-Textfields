@@ -1,0 +1,34 @@
+// Glyphicons font path
+$icon-font-path:        "../fonts/";
+
+// Grid settings
+$main-sm-columns:       12;
+$sidebar-sm-columns:    4;
+$special-column-cols:   ($main-sm-columns / 5);
+$special-column-width:  percentage($special-column-cols/$main-sm-columns);
+
+// Colors
+$brand-primary:         #00af50;
+
+/* border-radius */
+$border-radius-base:    20px;
+$border-radius-large:   30px;
+$border-radius-xlarge:  40px;
+$border-radius-small:   10px;
+
+/* fontsize */
+$font-size-base:        16px;
+
+// transition
+$transition:            cubic-bezier(0.885, 0.000, 0.105, 1.190);
+$transition-blop:       cubic-bezier(0.590, -0.535, 0.245, 1.000);
+$transition-speed:      400ms;
+$animation-normal:      $transition-speed $transition;
+$animation-fast:        ($transition-speed / 2) $transition;
+$animation-slow:        ($transition-speed * 2) $transition;
+
+$animation-blop-normal: $transition-speed $transition-blop;
+$animation-blop-fast:   ($transition-speed / 2) $transition-blop;
+
+$carousel-speed:        2s;
+$carousel-animation:    $carousel-speed cubic-bezier(0.675, 0.010, 0.480, 0.995);
