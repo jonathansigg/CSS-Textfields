@@ -16,10 +16,12 @@ $field-animation-fast:  all ($field-animation-dur / 2) $field-animation-type;
 $field-animation-slow:  all ($field-animation-dur * 2) $field-animation-type;
 
 //label
-$label-top-position:    5px !default;
+$field-label-top-position:    5px !default;
 $field-label-position:  ($field-margin * 2);
 $field-label-width:     calc(100% - #{$field-label-position});
-$field-label-height:    calc(100% + #{$label-top-position});
+$field-label-height:    calc(100% + #{$field-label-top-position});
+$field-label-bottom-position: 20px !default;
+$field-label-top-to-bottom:   55px !default;
 
 
 /**
@@ -27,7 +29,9 @@ $field-label-height:    calc(100% + #{$label-top-position});
   */
 
 // normal
-$field-label-offset:      5px !default;
-$field-label-top:         55px !default;
-$field-label-top-color:   white;
-$field-label-font-size:   14px !default;
+$field-normal-label-offset:      10px !default;
+$field-normal-label-top:         $field-label-top-to-bottom;
+$field-normal-label-top-color:   white !default;
+$field-normal-label-font-size:   14px !default;
+
+//collapse

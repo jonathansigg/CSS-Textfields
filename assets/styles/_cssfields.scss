@@ -24,7 +24,7 @@
     position: absolute;
     text-align: center;
     left: $field-margin;
-    margin-top: -$label-top-position;
+    margin-top: -$field-label-top-position;
     top: 0;
     width: $field-label-width;
     z-index: 0;
@@ -49,7 +49,7 @@
     background: $field-primary;
     width: 0;
     height: 2px;
-    bottom: 0;
+    bottom: $field-label-bottom-position;
     left: 0;
   }
 }
@@ -60,24 +60,40 @@
 
 //normal
 .css-field.field-normal {
-  input + label:before {
+  label:before {
     width: 100%;
-    top: $field-label-top;
-    background: $field-label-top-color;
+    top: $field-normal-label-top;
+    background: $field-normal-label-top-color;
   }
-  input + label:after{
-    bottom: ($field-label-offset * 2);
+  label:after{
+    bottom: ($field-normal-label-offset * 2);
   }
   input:focus + label:after{
     width: 100%;
-    bottom: $field-label-offset;
+    bottom: $field-normal-label-offset;
   }
   input:focus + label:before {
-    top: ($field-label-top + $field-label-offset);
+    top: ($field-normal-label-top + $field-normal-label-offset);
   }
 
   input:focus + label {
-    top: -$field-label-offset;
-    font-size: $field-label-font-size;
+    top: -$field-normal-label-offset;
+    font-size: $field-normal-label-font-size;
+  }
+}
+
+// collapse
+.css-field.field-collapse {
+  label:after{
+    width: 100%;
+  }
+
+  label:before{
+    width: 100%;
+    top: $field-label-top-to-bottom;
+  }
+
+  input:focus + label:before {
+    top: -5px;
   }
 }
