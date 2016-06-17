@@ -5,20 +5,7 @@
   width: 100%;
   max-width: $field-width + ( $field-margin * 2 );
 
-  input[type="text"],
-  input[type="email"],
-  input[type="url"],
-  input[type="tel"],
-  input[type="number"],
-  input[type="search"],
-  input[type="range"],
-  input[type="date"],
-  input[type="month"],
-  input[type="week"],
-  input[type="time"],
-  input[type="datetime"],
-  input[type="datetime-local"],
-  input[type="color"] {
+  input {
     width: 100%;
     max-width: $field-width;
     margin: $field-margin;
@@ -29,43 +16,41 @@
     z-index: 1;
   }
 
-  input[type="text"]:focus,
-  input[type="email"]:focus,
-  input[type="url"]:focus,
-  input[type="tel"]:focus,
-  input[type="number"]:focus,
-  input[type="search"]:focus,
-  input[type="range"]:focus,
-  input[type="date"]:focus,
-  input[type="month"]:focus,
-  input[type="week"]:focus,
-  input[type="time"]:focus,
-  input[type="datetime"]:focus,
-  input[type="datetime-local"]:focus,
-  input[type="color"]:focus {
+  input:focus {
     outline: none;
   }
 
   label {
     position: absolute;
     text-align: center;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
+    left: $field-margin;
+    margin-top: -$label-top-position;
+    top: 0;
+    width: $field-label-width;
     z-index: 0;
     transition: $field-animation-base;
+    height: $field-label-height;
   }
 
   label:before {
     content: "";
     transition: $field-animation-base;
     position: absolute;
+    background: $field-primary;
+    width: 0;
+    height: 2px;
+    top: 0;
+    left: 0;
   }
   label:after {
     content: "";
     transition: $field-animation-base;
     position: absolute;
+    background: $field-primary;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
   }
 }
 
@@ -75,37 +60,24 @@
 
 //normal
 .css-field.field-normal {
-  input[type="text"]:focus,
-  input[type="email"]:focus,
-  input[type="url"]:focus,
-  input[type="tel"]:focus,
-  input[type="number"]:focus,
-  input[type="search"]:focus,
-  input[type="range"]:focus,
-  input[type="date"]:focus,
-  input[type="month"]:focus,
-  input[type="week"]:focus,
-  input[type="time"]:focus,
-  input[type="datetime"]:focus,
-  input[type="datetime-local"]:focus,
-  input[type="color"]:focus {
-
+  input + label:before {
+    width: 100%;
+    top: $field-label-top;
+    background: $field-label-top-color;
+  }
+  input + label:after{
+    bottom: ($field-label-offset * 2);
+  }
+  input:focus + label:after{
+    width: 100%;
+    bottom: $field-label-offset;
+  }
+  input:focus + label:before {
+    top: ($field-label-top + $field-label-offset);
   }
 
-  input[type="text"]:focus + label,
-  input[type="email"]:focus + label,
-  input[type="url"]:focus + label,
-  input[type="tel"]:focus + label,
-  input[type="number"]:focus + label,
-  input[type="search"]:focus + label,
-  input[type="range"]:focus + label,
-  input[type="date"]:focus + label,
-  input[type="month"]:focus + label,
-  input[type="week"]:focus + label,
-  input[type="time"]:focus + label,
-  input[type="datetime"]:focus + label,
-  input[type="datetime-local"]:focus + label,
-  input[type="color"]:focus + label {
-    
+  input:focus + label {
+    top: -$field-label-offset;
+    font-size: $field-label-font-size;
   }
 }

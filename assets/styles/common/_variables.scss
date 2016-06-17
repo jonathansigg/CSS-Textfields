@@ -5,8 +5,29 @@ $field-width:       300px !default;
 $field-padding:     15px !default;
 $field-margin:      10px !default;
 
+//colors
+$field-primary:     #34495e !default;
+
 // animation
-$field-animation-dur:   400ms;
-$field-animation-base:  all $field-animation-dur ease-in-out;
-$field-animation-fast:  all ($field-animation-dur / 2) ease-in-out;
-$field-animation-slow:  all ($field-animation-dur * 2) ease-in-out;
+$field-animation-dur:   400ms !default;
+$field-animation-type:  ease-in-out !default;
+$field-animation-base:  all $field-animation-dur $field-animation-type;
+$field-animation-fast:  all ($field-animation-dur / 2) $field-animation-type;
+$field-animation-slow:  all ($field-animation-dur * 2) $field-animation-type;
+
+//label
+$label-top-position:    5px !default;
+$field-label-position:  ($field-margin * 2);
+$field-label-width:     calc(100% - #{$field-label-position});
+$field-label-height:    calc(100% + #{$label-top-position});
+
+
+/**
+  * Animationtypes
+  */
+
+// normal
+$field-label-offset:      5px !default;
+$field-label-top:         55px !default;
+$field-label-top-color:   white;
+$field-label-font-size:   14px !default;
