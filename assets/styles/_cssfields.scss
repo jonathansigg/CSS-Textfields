@@ -22,7 +22,6 @@
 
   label {
     position: absolute;
-    text-align: center;
     left: $field-margin;
     margin-top: -$field-label-top-position;
     top: 0;
@@ -30,6 +29,23 @@
     z-index: 0;
     transition: $field-animation-base;
     height: $field-label-height;
+
+    .label-text {
+      transition: $field-animation-base;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .label-text:before,
+    .label-text:after {
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: attr(data-content);
+      opacity: 0;
+      overflow: hidden;
+    }
   }
 
   label:before {
@@ -47,10 +63,10 @@
     transition: $field-animation-base;
     position: absolute;
     background: $field-primary;
-    width: 0;
     height: 2px;
     bottom: $field-label-bottom-position;
     left: 0;
+    width: 100%;
   }
 }
 
@@ -60,23 +76,19 @@
 
 //normal
 .css-field.field-normal {
+  label:after{
+    width: 0;
+  }
   label:before {
     width: 100%;
     top: $field-normal-label-top;
     background: $field-normal-label-top-color;
   }
-  label:after{
-    bottom: ($field-normal-label-offset * 2);
-  }
   input:focus + label:after{
     width: 100%;
-    bottom: $field-normal-label-offset;
-  }
-  input:focus + label:before {
-    top: ($field-normal-label-top + $field-normal-label-offset);
   }
 
-  input:focus + label {
+  input:focus + label > .label-text {
     top: -$field-normal-label-offset;
     font-size: $field-normal-label-font-size;
   }
@@ -84,16 +96,45 @@
 
 // collapse
 .css-field.field-collapse {
-  label:after{
-    width: 100%;
-  }
-
   label:before{
+    opacity: 0;
     width: 100%;
     top: $field-label-top-to-bottom;
   }
 
   input:focus + label:before {
-    top: -5px;
+    opacity: 1;
+    top: $field-collapse-label-top;
+  }
+
+  label > .label-text {
+    transition: left $field-animation-dur $field-animation-type 0s, transform $field-animation-dur $field-animation-type 0s, font-size $field-animation-dur $field-animation-type $field-animation-dur;
+  }
+
+  input:focus + label > .label-text {
+    transition: left $field-animation-dur $field-animation-type $field-animation-dur, transform $field-animation-dur $field-animation-type $field-animation-dur, font-size $field-animation-dur $field-animation-type 0s;
+    font-size: $field-collapse-label-fontsize;
+    left: 0;
+    transform: translateX(0);
+  }
+
+  // bounce
+  .css-field.field-bounce {
+    label:before {
+      top: $field-label-top-to-bottom;
+    }
+
+    label {
+      color: transparent;
+      .label-text:before,
+      .label-text:after {
+        color: red;
+        opacity: 1;
+      }
+
+      .label-text:before {
+        left: -200px;
+      }
+    }
   }
 }

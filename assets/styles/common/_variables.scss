@@ -10,10 +10,15 @@ $field-primary:     #34495e !default;
 
 // animation
 $field-animation-dur:   400ms !default;
-$field-animation-type:  ease-in-out !default;
+$field-animation-type:  cubic-bezier(0.960, 0.035, 0.190, 0.850) !default;
 $field-animation-base:  all $field-animation-dur $field-animation-type;
 $field-animation-fast:  all ($field-animation-dur / 2) $field-animation-type;
 $field-animation-slow:  all ($field-animation-dur * 2) $field-animation-type;
+
+$field-animation-bounce:  cubic-bezier(0.575, 0.010, 0.000, 1.455);
+$field-animation-bounce-base:  all $field-animation-dur $field-animation-bounce;
+$field-animation-bounce-fast:  all ($field-animation-dur / 2) $field-animation-bounce;
+$field-animation-bounce-slow:  all ($field-animation-dur * 2) $field-animation-bounce;
 
 //label
 $field-label-top-position:    5px !default;
@@ -29,9 +34,11 @@ $field-label-top-to-bottom:   55px !default;
   */
 
 // normal
-$field-normal-label-offset:      10px !default;
-$field-normal-label-top:         $field-label-top-to-bottom;
-$field-normal-label-top-color:   white !default;
-$field-normal-label-font-size:   14px !default;
+$field-normal-label-offset:       0px !default;
+$field-normal-label-top:          $field-label-top-to-bottom;
+$field-normal-label-top-color:    white !default;
+$field-normal-label-font-size:    14px !default;
 
 //collapse
+$field-collapse-label-top:        25px !default;
+$field-collapse-label-fontsize:   14px !default;
